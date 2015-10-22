@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>twenty0ne's blog - twenty0ne</title>
+        <title>twenty0ne's blog - design</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -81,89 +81,11 @@
 <p>这样配置就变得清晰，便于编辑<br />
 最后形成具体表格给策划使用的时候，就看策划喜欢那种方式，如果喜欢他全部item属性都放在一张里面，你就给他一张表包括所有属性，再在制作资源的时候通过<strong>脚本(或者其他方法)</strong>将配置表拆分成不同的表方便程序阅读<br />
 如果策划喜欢将配置放在不同的表格里面，这种情况下需要确保的配置的uid对应正确，所以程序这边也需要做一些辅助脚本帮其检测更好。</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/posts/2015/10/how-to-improve-ccb-using/" rel="bookmark"
-                           title="Permalink to ccb优化思考">ccb优化思考</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>三 14 十月 2015</span>
-<span>| tags: <a href="/tag/cocos2d-x.html">cocos2d-x</a><a href="/tag/ccb.html">ccb</a><a href="/tag/ui.html">ui</a></span>
-</footer><!-- /.post-info -->                <p>ccb载入过程中，如果有很多隐藏的元素，也会初始化，但是这样就必然造成内存和速度的缓慢，是否可以只在使用的时候才初始化</p>
-                <a class="readmore" href="/posts/2015/10/how-to-improve-ccb-using/">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/posts/2015/09/is-mvc-good-for-game/" rel="bookmark"
-                           title="Permalink to mvc是否适合游戏">mvc是否适合游戏</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>二 22 九月 2015</span>
-<span>| tags: <a href="/tag/game.html">game</a><a href="/tag/mvc.html">mvc</a></span>
-</footer><!-- /.post-info -->                <p>其实从开发游戏开始，就在一直找寻最好的结构。<br />
-从最开始把逻辑显示都写到一块，再到逐渐分离成mvc，后来又选择性的去掉control，并没有明确到底什么类型的结构最适合游戏开发，但逐渐形成的意识就是mvc并不适合一般的游戏开发。
-游戏开发中遇到的一些使用mvc的人，问他们选择mvc的原因，大部分回答都是将来移植，替换引擎方便之类的，虽然这的确是一个问题，但要考虑到这种概率有多小，如果把这种作为选择mvc的原因，我觉得是不能让人信服的。<br />
-一般小游戏，比如贪吃蛇类型的，还是喜欢直接都写到一块，因为方便快捷。
-如果是大一点的，建议将view单独出来，这样方便做逻辑和数据的处理，也方便在view上面做更多的表现，而不用考虑数据的影响。<br />
-如果偏数据ui的游戏，比如《刀塔传奇》这种，建议采用mvc，因为model不仅与local有关，还与server有关系，mvc能够更好的协调数据的处理。</p>
-                <a class="readmore" href="/posts/2015/09/is-mvc-good-for-game/">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/posts/2015/09/write-blog-with-pelican/" rel="bookmark"
-                           title="Permalink to 使用pelican写blog">使用pelican写blog</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>日 13 九月 2015</span>
-<span>| tags: <a href="/tag/pelican.html">pelican</a><a href="/tag/python.html">python</a></span>
-</footer><!-- /.post-info -->                <p>1.使用makedown语法写文档<br />
-2.切换到blog目录，输入make html，然后输入./develop_server.sh start，如果要停止输入./develop_server.sh stop<br />
-3.在浏览器中输入localhost:8000测试<br />
-4.切换到git目录，输入如下</p>
-<div class="highlight"><pre>        <span class="o">&gt;</span><span class="n">git</span> <span class="n">checkout</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>
-        <span class="o">&gt;</span><span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="p">{</span><span class="n">DIR</span><span class="o">-</span><span class="n">BLOG</span><span class="p">}</span><span class="o">/</span><span class="n">output</span>
-        <span class="o">&gt;</span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;...&quot;</span>
-        <span class="o">&gt;</span><span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
-        <span class="o">&gt;</span><span class="n">git</span> <span class="n">merge</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>  
-        <span class="o">&gt;</span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
-</pre></div>
-                <a class="readmore" href="/posts/2015/09/write-blog-with-pelican/">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/posts/2015/09/my/" rel="bookmark"
-                           title="Permalink to test2">test2</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>六 12 九月 2015</span>
-<span>| tags: <a href="/tag/python.html">python</a></span>
-</footer><!-- /.post-info -->                <p>test2</p>
-                <a class="readmore" href="/posts/2015/09/my/">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
 <p class="paginator">
     Page 1 / 1
 </p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
             </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
