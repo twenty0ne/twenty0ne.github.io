@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>twenty0ne's blog</title>
+        <title>twenty0ne's blog - mvc</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -21,22 +21,25 @@
                 </ul>
                 </nav>
         </header><!-- /#banner -->
-<section id="content" class="body">
-<h1>Archives for twenty0ne's blog</h1>
 
-<dl>
-    <dt>四 22 十月 2015</dt>
-    <dd><a href="/posts/2015/10/how-to-design-game-config/">游戏配置如何更自由</a></dd>
-    <dt>三 14 十月 2015</dt>
-    <dd><a href="/posts/2015/10/how-to-improve-ccb-using/">ccb优化思考</a></dd>
-    <dt>二 22 九月 2015</dt>
-    <dd><a href="/posts/2015/09/is-mvc-good-for-game/">mvc是否适合游戏</a></dd>
-    <dt>日 13 九月 2015</dt>
-    <dd><a href="/posts/2015/09/write-blog-with-pelican/">使用pelican写blog</a></dd>
-    <dt>六 12 九月 2015</dt>
-    <dd><a href="/posts/2015/09/my/">test2</a></dd>
-</dl>
-</section>
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/posts/2015/09/is-mvc-good-for-game/">mvc是否适合游戏</a></h1>
+<footer class="post-info">
+        <span>二 22 九月 2015</span>
+<span>| tags: <a href="/tag/game.html">game</a><a href="/tag/mvc.html">mvc</a></span>
+</footer><!-- /.post-info --><p>其实从开发游戏开始，就在一直找寻最好的结构。<br />
+从最开始把逻辑显示都写到一块，再到逐渐分离成mvc，后来又选择性的去掉control，并没有明确到底什么类型的结构最适合游戏开发，但逐渐形成的意识就是mvc并不适合一般的游戏开发。
+游戏开发中遇到的一些使用mvc的人，问他们选择mvc的原因，大部分回答都是将来移植，替换引擎方便之类的，虽然这的确是一个问题，但要考虑到这种概率有多小，如果把这种作为选择mvc的原因，我觉得是不能让人信服的。<br />
+一般小游戏，比如贪吃蛇类型的，还是喜欢直接都写到一块，因为方便快捷。
+如果是大一点的，建议将view单独出来，这样方便做逻辑和数据的处理，也方便在view上面做更多的表现，而不用考虑数据的影响。<br />
+如果偏数据ui的游戏，比如《刀塔传奇》这种，建议采用mvc，因为model不仅与local有关，还与server有关系，mvc能够更好的协调数据的处理。</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
