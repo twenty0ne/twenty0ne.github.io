@@ -1,39 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
 <head>
-        <meta charset="utf-8" />
-        <title>游戏配置如何更自由</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>游戏配置如何更自由</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="twenty0ne">
 
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="twenty0ne's blog">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/posts/2015/10/how-to-design-game-config/">
+<meta name="twitter:title" content="twenty0ne's blog ~ 游戏配置如何更自由">
+<meta name="twitter:description" content="<p>印象中配置似乎是策划的事情，程序员将表格丢给策划后随便策划折腾。<br />
+其实往往最痛苦的是在前期，策划的需求还没有确定，配置变来变去再正常不过，在这种情况下我不太建议开始设计表格，让策划来填写，最好的方式就是直接再程序里面写配置，比如TestConfig.h，这样修改起来更快捷更直观。  </p>
+<p>那如何组织配置呢？我觉得这时候<strong>组合</strong>是更合理的方式。<br />
+比如策划想在游戏中添加Item，可能需要用到如下属性</p>
+<div class="highlight"><pre>            <span class="nt">struct</span> <span class="nt">Item</span> <span class="p">{</span>
+                <span class="n">int</span>             <span class="n">uid</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">name</span><span class="p">;</span>
+                <span class="n">int</span>             <span class="n">coin</span><span class="p">;</span>
+            <span class="p">}</span><span class="o">;</span>
+</pre></div>
+
+
+<p>现在针对不同种类的物品，需要添加一些属性，可能等义就变为如下  </p>
+<div class="highlight"><pre>            <span class="nt">struct</span> <span class="nt">Item</span> <span class="p">{</span>
+                <span class="n">int</span>             <span class="n">uid</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">name</span><span class="p">;</span>
+                <span class="n">int</span>             <span class="n">coin</span><span class="p">;</span>
+                <span class="o">//...</span>
+                <span class="n">int</span>             <span class="n">weight</span><span class="p">;</span>
+                <span class="o">//...</span>
+            <span class="p">}</span><span class="o">;</span>
+</pre></div>
+
+
+<p>好的过一段时间，你会发现配置表变为如下  </p>
+<div class="highlight"><pre>            static Item gItemConfigs[] = {
+                {0, &quot;item0&quot;, 1, ... , 10, ...},
+                {1 ...</pre></div>">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="twenty0ne's blog ~ 游戏配置如何更自由" />
+<meta property="og:description" content="<p>印象中配置似乎是策划的事情，程序员将表格丢给策划后随便策划折腾。<br />
+其实往往最痛苦的是在前期，策划的需求还没有确定，配置变来变去再正常不过，在这种情况下我不太建议开始设计表格，让策划来填写，最好的方式就是直接再程序里面写配置，比如TestConfig.h，这样修改起来更快捷更直观。  </p>
+<p>那如何组织配置呢？我觉得这时候<strong>组合</strong>是更合理的方式。<br />
+比如策划想在游戏中添加Item，可能需要用到如下属性</p>
+<div class="highlight"><pre>            <span class="nt">struct</span> <span class="nt">Item</span> <span class="p">{</span>
+                <span class="n">int</span>             <span class="n">uid</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">name</span><span class="p">;</span>
+                <span class="n">int</span>             <span class="n">coin</span><span class="p">;</span>
+            <span class="p">}</span><span class="o">;</span>
+</pre></div>
+
+
+<p>现在针对不同种类的物品，需要添加一些属性，可能等义就变为如下  </p>
+<div class="highlight"><pre>            <span class="nt">struct</span> <span class="nt">Item</span> <span class="p">{</span>
+                <span class="n">int</span>             <span class="n">uid</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">name</span><span class="p">;</span>
+                <span class="n">int</span>             <span class="n">coin</span><span class="p">;</span>
+                <span class="o">//...</span>
+                <span class="n">int</span>             <span class="n">weight</span><span class="p">;</span>
+                <span class="o">//...</span>
+            <span class="p">}</span><span class="o">;</span>
+</pre></div>
+
+
+<p>好的过一段时间，你会发现配置表变为如下  </p>
+<div class="highlight"><pre>            static Item gItemConfigs[] = {
+                {0, &quot;item0&quot;, 1, ... , 10, ...},
+                {1 ...</pre></div>" />
+<meta property="og:image" content="" />
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">twenty0ne's blog </a></h1>
-                <nav><ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/archives.html">Archives</a></li>
-                    <li><a href="/tags.html">Tags</a></li>
-                    <li><a href="/categories.html">Categories</a></li>
-                </ul>
-                </nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="/posts/2015/10/how-to-design-game-config/" rel="bookmark"
-           title="Permalink to 游戏配置如何更自由">游戏配置如何更自由</a></h1>
-    </header>
+<body>
+  <!-- Sidebar -->
+  <aside>
+    <!--<center><a href=""><img id="avatar" src=""></a></center>-->
+    <h1>twenty0ne's blog</h1>
+      <p>Indie Developer</p>
+    <br>
 
-    <div class="entry-content">
-<footer class="post-info">
-        <span>四 22 十月 2015</span>
-<span>| tags: <a href="/tag/game.html">game</a><a href="/tag/design.html">design</a></span>
-</footer><!-- /.post-info -->      <p>印象中配置似乎是策划的事情，程序员将表格丢给策划后随便策划折腾。<br />
+
+    <nav class="nav">
+      <ul class="list-bare">
+      
+          <li><a class="nav__link" href="/">Home</a></li>
+          <li><a class="nav__link" href="/archives.html">Archives</a></li>
+          <li><a class="nav__link" href="/tags.html">Tags</a></li>
+          <li><a class="nav__link" href="/categories.html">Categories</a></li>
+         
+          <li><a class="nav__link" href="/pages/about.html">About</a></li>
+         
+      </ul>
+    </nav>
+
+    <p class="social">
+    </p>
+
+    <!--
+    <h2>Categories</h2>
+    <ul class="navbar">
+      <li><a href="/category/cocos2d-x.html">Cocos2d-x</a></li>
+      <li class="active"><a href="/category/game.html">Game</a></li>
+      <li><a href="/category/gamedev.html">GameDev</a></li>
+      <li><a href="/category/issue.html">Issue</a></li>
+      <li><a href="/category/other.html">Other</a></li>
+      <li><a href="/category/pelican.html">Pelican</a></li>
+      <li><a href="/category/tool.html">Tool</a></li>
+    </ul> 
+    -->
+  </aside>
+
+  <!-- Content -->
+  <article>
+<section id="content">
+    <article>
+        <h2 class="post_title post_detail"><a href="/posts/2015/10/how-to-design-game-config/" rel="bookmark" title="Permalink to 游戏配置如何更自由">游戏配置如何更自由</a></h2>
+        <div class="entry-content blog-post">
+            <p>印象中配置似乎是策划的事情，程序员将表格丢给策划后随便策划折腾。<br />
 其实往往最痛苦的是在前期，策划的需求还没有确定，配置变来变去再正常不过，在这种情况下我不太建议开始设计表格，让策划来填写，最好的方式就是直接再程序里面写配置，比如TestConfig.h，这样修改起来更快捷更直观。  </p>
 <p>那如何组织配置呢？我觉得这时候<strong>组合</strong>是更合理的方式。<br />
 比如策划想在游戏中添加Item，可能需要用到如下属性</p>
@@ -86,33 +190,46 @@
 <p>这样配置就变得清晰，便于编辑<br />
 最后形成具体表格给策划使用的时候，就看策划喜欢那种方式，如果喜欢他全部item属性都放在一张里面，你就给他一张表包括所有属性，再在制作资源的时候通过<strong>脚本(或者其他方法)</strong>将配置表拆分成不同的表方便程序阅读<br />
 如果策划喜欢将配置放在不同的表格里面，这种情况下需要确保的配置的uid对应正确，所以程序这边也需要做一些辅助脚本帮其检测更好。</p>
-    </div><!-- /.entry-content -->
+        </div>
+        <div class="post_list">
+            <span>By </span>
+            <a href="/author/twenty0ne.html">@twenty0ne</a>
+            <span> in </span>
+            <span class="post_category"><a href="/category/game.html" rel="bookmark" title="Permalink to Game">[ Game ]</a></span>
+            <span class="post_date">22/10/2015</span>
+            <div><span>Tags : </span>
+                <span><a href="/tag/game.html">#game, </a></span>
+                <span><a href="/tag/design.html">#design, </a></span>
+            </div>
 
-  </article>
+        </div>
+        <div class="comments">
+            <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_identifier = "posts/2015/10/how-to-design-game-config/";
+            (function() {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'https://twenty0ne.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] ||
+                 document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+            </script>
+        </div>
+    </article>
 </section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+  </article>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+  <!-- Footer -->
+  <footer>
+    <p>
+      Blog powered by <a href="http://getpelican.com/">Pelican</a>, 
+      which takes great advantage of <a href="http://python.org">Python</a>.
+      Theme <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a> by <a href="https://parbhatpuri.com/">@parbhat</a>.
+    </p>
+  </footer>
 
-        <footer id="contentinfo" class="body">
-                <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme <a href="https://github.com/blueicefield/pelican-blueidea/">blueidea</a>, inspired by the default theme.</p>
-        </footer><!-- /#contentinfo -->
 
 </body>
 </html>
